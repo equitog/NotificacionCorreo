@@ -15,8 +15,8 @@ file = file[file['name'].str.contains(search)]
 """ Enviar corrreo """
 for reg in file.itertuples():
     name = reg[1]
-    mail = reg[2]
+    receiver_mail = reg[2]
     mail2 = reg[3]
     subject = reg[4]
     body = str(reg[5])
-    sendmail('empresain.erp@gmail.com', mail, mail2, subject, body)
+    sendmail('empresain.erp@gmail.com', receiver_mail, name, subject, body)

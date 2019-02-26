@@ -1,9 +1,9 @@
-def sendmail(sentmail: str, frommail: str, mail: str, subjectmail: str, bodymail: str) -> object:
+def sendmail(sender: str, receiver: str, name: str,subjectmail: str, bodymail: str) -> object:
     import smtplib
     import ssl
     from email.mime.text import MIMEText
     from email.mime.multipart import MIMEMultipart
-    from email import  encoders
+    from email import encoders
     from email.mime.base import MIMEBase
 
     port = 465  # Para Ssl
@@ -13,15 +13,11 @@ def sendmail(sentmail: str, frommail: str, mail: str, subjectmail: str, bodymail
     context = ssl.create_default_context()
 
     """ COnfiguracion de envios """
-    by_email = sentmail
-    from_email = frommail
-    #message_body = 'Subject: {0}\n\n{1}'.format(subjectmail, bodymail)
 
     message = MIMEMultipart('alternative')
     message['Subject'] = subjectmail
-    message['From'] = by_email
-    message['To'] = from_email
-    message['Bcc'] = mail
+    message['From'] = sender
+    message['To'] = receiver
 
 
     # html = """\
@@ -35,7 +31,7 @@ def sendmail(sentmail: str, frommail: str, mail: str, subjectmail: str, bodymail
     # </body>
     # </html>
     # """
-
+    bodymail = bodymail.format(name)
     message.attach(MIMEText(bodymail, 'plain'))
     #part2 = MIMEText(html, 'html')
 
@@ -61,8 +57,8 @@ def sendmail(sentmail: str, frommail: str, mail: str, subjectmail: str, bodymail
 
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as server:
-            server.login("empresain.erp@gmail.com", password)
-            server.sendmail(by_email, from_email.split(', ') + mail.split(', '), message.as_string())
+            server.login(sender, password)
+            server.sendmail(sender, receiver.split(', '), message.as_string())
             a = 'El correo ha sido enviado satisfactoriamente...'
     except Exception:
         a = 'No se pudo envíar correo'
