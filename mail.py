@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from readfile import readfile
 from emailsetting import sendmail
 """ Buscar por nombre y estado"""
