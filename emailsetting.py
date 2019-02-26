@@ -1,4 +1,4 @@
-def sendmail(sender: str, receiver: str, name: str,subjectmail: str, bodymail: str) -> object:
+def sendmail(sender: str, receiver: str, name: str,subjectmail: str, bodymail: str, attachment: int, file: str) -> object:
     import smtplib
     import ssl
     from email.mime.text import MIMEText
@@ -37,28 +37,28 @@ def sendmail(sender: str, receiver: str, name: str,subjectmail: str, bodymail: s
 
     #message.attach(part1)
     #message.attach(part2)
+    if attachment == 1:
+        filename = file
 
-    filename = 'settingemail.xls'
+        with open(filename, 'rb') as attachment:
+            part = MIMEBase('application', 'octet-stream')
+            part.set_payload(attachment.read())
 
-    with open(filename, 'rb') as attachment:
-        part = MIMEBase('application', 'octet-stream')
-        part.set_payload(attachment.read())
+        encoders.encode_base64(part)
 
-    encoders.encode_base64(part)
+        part.add_header(
+            'Content-Disposition',
+            f'attachment; filename = {filename}',
+        )
+        message.attach(part)
 
-    part.add_header(
-        'Content-Disposition',
-        f'attachment; filename = {filename}',
-    )
-
-    message.attach(part)
     text = message.as_string()
 
 
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as server:
             server.login(sender, password)
-            server.sendmail(sender, receiver.split(', '), message.as_string())
+            server.sendmail(sender, receiver.split(', '), text)
             a = 'El correo ha sido enviado satisfactoriamente...'
     except Exception:
         a = 'No se pudo envíar correo'

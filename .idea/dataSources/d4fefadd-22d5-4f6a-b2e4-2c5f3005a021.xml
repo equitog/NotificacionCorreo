@@ -18,7 +18,7 @@
       <ObjectId>32023</ObjectId>
       <StateNumber>38732</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>121777</IntrospectionStateNumber>
+      <IntrospectionStateNumber>124385</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|32024|32026|1
@@ -120,7 +120,7 @@ sequence|table|32149|32151|1
       <Comment>standard public schema</Comment>
       <StateNumber>351</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>121778</IntrospectionStateNumber>
+      <IntrospectionStateNumber>124386</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -305,7 +305,7 @@ sequence|table|32149|32151|1
     <table id="46" parent="19" name="test">
       <ObjectId>40239</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>121776</StateNumber>
+      <StateNumber>124381</StateNumber>
     </table>
     <column id="47" parent="36" name="id">
       <Position>1</Position>
@@ -1071,6 +1071,18 @@ model</ColNames>
       <DataType>integer|0s</DataType>
       <StateNumber>121776</StateNumber>
       <TypeId>23</TypeId>
+    </column>
+    <column id="156" parent="46" name="attachment">
+      <Position>9</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>124379</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="157" parent="46" name="file">
+      <Position>10</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>124381</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
   </database-model>
 </dataSource>
