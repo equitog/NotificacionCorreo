@@ -37,7 +37,7 @@ def sendmail(sender: str, receiver: str, name: str,subjectmail: str, bodymail: s
 
     #message.attach(part1)
     #message.attach(part2)
-    if attachment == 1:
+    if attachment == 0:
         filename = file
 
         with open(filename, 'rb') as attachment:
