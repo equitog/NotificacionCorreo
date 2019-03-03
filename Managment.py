@@ -21,8 +21,8 @@ elif option.lower() == 'i':
     conn = conectionpsql()
     cursor = conn.cursor()
 
-    query_insert = """INSERT INTO Test VALUES(%s, %s, %s, %s, %s, %s, %s, %s)"""
-    cursor.execute(query_insert, (index, name, mail, mail_2, subject, body, datesend, enabled))
+    query_insert = """INSERT INTO Test VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+    cursor.execute(query_insert, (index, name, mail, mail_2, subject, body, datesend, enabled, attachment, file))
     conn.commit()
 
     print('Se inserto correctamente')

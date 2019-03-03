@@ -20,5 +20,7 @@ for reg in file.itertuples():
     receiver_mail = reg[2]
     mail2 = reg[3]
     subject = reg[4]
-    body = str(reg[5])
-    sendmail('empresain.erp@gmail.com', receiver_mail, name, subject, body, 0, 'settingemail.xls')
+    body = reg[5]
+    attachment = reg[8]
+    filemail = reg[9]
+    sendmail('empresain.erp@gmail.com', receiver_mail, name, subject, body, attachment, filemail)
