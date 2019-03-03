@@ -3,7 +3,7 @@
 from readfile import readfile
 from emailsetting import sendmail
 """ Buscar por nombre y estado"""
-search = 'Alejandra'
+search = 'Cassandra'
 enable = 'Activo'
 
 """ Lectura de datos """

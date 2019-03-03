@@ -1,4 +1,4 @@
-def sendmail(sender: str, receiver: str, name: str,subjectmail: str, bodymail: str, attachment: int, file: str) -> object:
+def sendmail(sender: str, receiver: str, name: str,subjectmail: str, bodymail: str, attachment: int, file: str):
     import smtplib
     import ssl
     from email.mime.text import MIMEText
@@ -63,4 +63,3 @@ def sendmail(sender: str, receiver: str, name: str,subjectmail: str, bodymail: s
     except Exception:
         a = 'No se pudo envíar correo'
     return print(a)
-
