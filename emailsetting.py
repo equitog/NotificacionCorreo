@@ -32,7 +32,7 @@ def sendmail(sender: str, receiver: str, name: str,subjectmail: str, bodymail: s
     # </html>
     # """
     bodymail = bodymail.format(name)
-    message.attach(MIMEText(bodymail, 'plain'))
+    message.attach(MIMEText(bodymail, 'html'))
     #part2 = MIMEText(html, 'html')
 
     #message.attach(part1)
